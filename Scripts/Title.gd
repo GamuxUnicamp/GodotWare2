@@ -24,8 +24,9 @@ func _update_progress_bar(value):
 	$Game_UI/ProgressBar.value = value
 	pass
 
-func _game_start():
-	$Button.queue_free()
+func _game_start(difficulty):
+	global.difficulty = difficulty
+	$Buttons.queue_free()
 	led_print("")
 	$Close_Door.play("Close")
 	pass
@@ -41,7 +42,7 @@ func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	$BG.frame = 0
-	$Button.connect("pressed",self,"_game_start")
+	$Buttons.connect("pressed",self,"_game_start")
 	$Close_Door.connect("animation_finished",self,"_door_closed")
 	$Open_Door.connect("animation_finished",self,"_door_open")
 	$Close_in.connect("animation_finished",self,"_zoom_in")
@@ -67,6 +68,8 @@ func _delay_timeout():
 		last_minigame_index = next_minigame_index
 		current_minigame = global.minigame_list[next_minigame_index].instance()
 		print("Lives: "+str(current_lives))
+		print("Score: "+str(global.current_points))
+		print("Difficulty: "+str(global.difficulty))
 		print("Starting: " + current_minigame.NAME)
 		add_child(current_minigame)
 		current_minigame.connect("timer_percentage",self,"_update_progress_bar")
