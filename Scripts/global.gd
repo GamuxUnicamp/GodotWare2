@@ -4,6 +4,7 @@ extends Node
 # var a = 2
 # var b = "textvar"
 var difficulty = 0
+var current_points = 0
 
 var minigame_list = []
 const minigame_path = "res://Minigames"

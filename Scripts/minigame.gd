@@ -6,7 +6,7 @@ export(String) var INSTRUCTION = "DO IT!"
 
 export(int) var DURATION = 5
 
-export(int) var TIMEOUT_WIN = false
+export(bool) var TIMEOUT_WIN = false
 
 export(bool) var USE_KEYBOARD = false
 

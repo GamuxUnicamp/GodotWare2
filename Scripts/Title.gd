@@ -4,6 +4,7 @@ extends Node2D
 # var a = 2
 # var b = "textvar"
 
+var current_lives = 3
 var current_minigame = null
 var last_minigame_index = -1
 
@@ -11,6 +12,10 @@ func show_lives():
 	pass
 
 func _minigame_ended(status):
+	if status == true:
+		global.current_points += 1
+	else:
+		current_lives -= 1
 	led_print("")
 	$Close_out.play("Close_out")
 	pass
@@ -20,6 +25,7 @@ func _update_progress_bar(value):
 	pass
 
 func _game_start():
+	$Button.queue_free()
 	led_print("")
 	$Close_Door.play("Close")
 	pass
@@ -29,6 +35,7 @@ func led_print(instruction):
 	#get_tree().change_scene("res://Scenes/Minigame_Session.tscn")
 
 func _ready():
+	global.current_points = 0
 	randomize()
 	$Game_UI.hide()
 	# Called when the node is added to the scene for the first time.
@@ -43,6 +50,8 @@ func _ready():
 	pass
 
 func _door_closed(anim):
+	if current_lives <= 0:
+		get_tree().change_scene("res://Scenes/Game_over.tscn")
 	if current_minigame != null:
 		current_minigame.queue_free()
 	$Delay_timer.start()
@@ -57,6 +66,7 @@ func _delay_timeout():
 			next_minigame_index = randi()%game_number
 		last_minigame_index = next_minigame_index
 		current_minigame = global.minigame_list[next_minigame_index].instance()
+		print("Lives: "+str(current_lives))
 		print("Starting: " + current_minigame.NAME)
 		add_child(current_minigame)
 		current_minigame.connect("timer_percentage",self,"_update_progress_bar")
