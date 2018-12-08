@@ -57,7 +57,7 @@ func _delay_timeout():
 			next_minigame_index = randi()%game_number
 		last_minigame_index = next_minigame_index
 		current_minigame = global.minigame_list[next_minigame_index].instance()
-		print("Starting" + current_minigame.NAME)
+		print("Starting: " + current_minigame.NAME)
 		add_child(current_minigame)
 		current_minigame.connect("timer_percentage",self,"_update_progress_bar")
 		current_minigame.connect("minigame_end",self,"_minigame_ended")
