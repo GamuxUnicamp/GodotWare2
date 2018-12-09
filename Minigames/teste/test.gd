@@ -7,11 +7,12 @@ extends "res://Scripts/minigame.gd"
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	$object.set_process(true)
+
+	$object.position.y = 10
 	pass
 
 func minigame_start():
-	
+	$object.set_process(true)
 	.minigame_start()
 	pass
 #func _process(delta):

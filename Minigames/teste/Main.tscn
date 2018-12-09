@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scripts/Template/Main.gd" type="Script" id=1]
+[ext_resource path="res://Minigames/teste/test.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Minigames/teste/object.gd" type="Script" id=3]
 
@@ -11,7 +11,7 @@ _sections_unfolded = [ "Pause" ]
 NAME = "Template"
 INSTRUCTION = "DO IT!"
 DURATION = 5
-TIMEOUT_WIN = false
+TIMEOUT_WIN = true
 USE_KEYBOARD = false
 USE_MOUSE = true
 

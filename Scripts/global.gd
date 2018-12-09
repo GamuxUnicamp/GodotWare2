@@ -9,6 +9,10 @@ var current_points = 0
 var minigame_list = []
 const minigame_path = "res://Minigames"
 
+func time_increase(points):
+	return 1.0 +points/10.0
+	#return 1.0+sqrt(points/5.0)
+
 func get_minigame_list():
 	var minigame_dir = Directory.new()
 	if minigame_dir.open(minigame_path) == OK:

@@ -12,10 +12,12 @@ func show_lives():
 	pass
 
 func _minigame_ended(status):
+	$Game_UI.hide()
 	if status == true:
 		global.current_points += 1
 	else:
 		current_lives -= 1
+	Engine.set_time_scale(global.time_increase(global.current_points))
 	led_print("")
 	$Close_out.play("Close_out")
 	pass
@@ -36,6 +38,7 @@ func led_print(instruction):
 	#get_tree().change_scene("res://Scenes/Minigame_Session.tscn")
 
 func _ready():
+	Engine.set_time_scale(global.time_increase(global.current_points))
 	global.current_points = 0
 	randomize()
 	$Game_UI.hide()
@@ -69,6 +72,7 @@ func _delay_timeout():
 		current_minigame = global.minigame_list[next_minigame_index].instance()
 		print("Lives: "+str(current_lives))
 		print("Score: "+str(global.current_points))
+		print("Speed: "+str(Engine.get_time_scale()))
 		print("Difficulty: "+str(global.difficulty))
 		print("Starting: " + current_minigame.NAME)
 		add_child(current_minigame)

@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scripts/Template/Main.gd" type="Script" id=1]
+[ext_resource path="res://Minigames/teste2/test.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Minigames/teste/object.gd" type="Script" id=3]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
-NAME = "Teste_2"
+NAME = "Template"
 INSTRUCTION = "JUST DO IT!"
 DURATION = 5
 TIMEOUT_WIN = true
