@@ -45,7 +45,10 @@ func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	$BG.frame = 0
-	$Buttons.connect("pressed",self,"_game_start")
+	$Buttons/Easy.connect("pressed",self,"_game_start",[1])
+	$Buttons/Medium.connect("pressed",self,"_game_start",[2])
+	$Buttons/Hard.connect("pressed",self,"_game_start",[3])
+	$Buttons/Impossible.connect("pressed",self,"_game_start",[4])
 	$Close_Door.connect("animation_finished",self,"_door_closed")
 	$Open_Door.connect("animation_finished",self,"_door_open")
 	$Close_in.connect("animation_finished",self,"_zoom_in")
