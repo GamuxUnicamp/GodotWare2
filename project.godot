@@ -24,6 +24,10 @@ window/size/width=640
 window/size/height=400
 window/stretch/mode="viewport"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "create_game_button" )
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
