@@ -1,12 +1,11 @@
 extends "res://Scripts/minigame.gd"
 
-var game_started = false
 var gun_up = false
 
 var stopped = false
 
 func _input(event):
-	if event.is_pressed() and stopped == false:
+	if event.is_pressed() and not stopped:
 		stopped = true
 		timer_pause()
 		$Wait_timer.stop()
@@ -20,6 +19,7 @@ func _input(event):
 	pass
 
 func _ready():
+	set_process_input(false)
 	randomize()
 	if difficulty == 1:
 		$Shot_timer.wait_time = 2.5
@@ -49,15 +49,17 @@ func _shot_timer_timeout():
 	$End_timer.start()
 
 func _end_timer_timeout():
-	emit_signal("minigame_end",gun_up)
+	if gun_up:
+		win()
+	else:
+		lose()
 
 func minigame_start():
 	set_process_input(true)
-	game_started = true
 	$Wait_timer.start()
 	.minigame_start()
 	pass
 	
-func _process(delta):
-	pass
+#func _process(delta):
+#	pass
 

@@ -3,10 +3,12 @@ extends Node
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
+var debug_mode = false
 var difficulty = 0
 var current_points = 0
 
 var minigame_list = []
+var minigame_names = []
 const minigame_path = "res://Minigames"
 
 func time_increase(points):
@@ -23,6 +25,7 @@ func get_minigame_list():
 				if minigame_dir.file_exists(game_name+"/Main.tscn"):
 					print("Game_exists "+game_name)
 					minigame_list.append(load(minigame_path+"/"+game_name+"/Main.tscn"))
+					minigame_names.append(game_name)
 				else:
 					print("No")
 				pass

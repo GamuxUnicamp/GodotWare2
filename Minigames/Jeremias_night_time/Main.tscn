@@ -7,120 +7,66 @@
 [ext_resource path="res://Minigames/Jeremias_night_time/Artigo.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
 extents = Vector2( 382.488, 10 )
 
 [sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
 extents = Vector2( 31.2388, 32.1516 )
 
 [sub_resource type="CircleShape2D" id=3]
-
-custom_solver_bias = 0.0
 radius = 16.836
 
-[node name="Main" type="Node2D" index="0"]
-
+[node name="Main" type="Node2D"]
 script = ExtResource( 1 )
 NAME = "Jeremias_night_time"
-INSTRUCTION = "Do it!"
 DURATION = 10
 TIMEOUT_WIN = true
-USE_KEYBOARD = false
-USE_MOUSE = true
 
-[node name="Limite" type="Area2D" parent="." index="0"]
-
+[node name="Limite" type="Area2D" parent="."]
 position = Vector2( 295.847, 436.568 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Limite" index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limite"]
 position = Vector2( 23.2689, -7.75632 )
 shape = SubResource( 1 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="1"]
-
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 0, -23.2689 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PoolVector2Array( 0.213654, 2.19766, -13.0828, 1.08962, -15.2989, 424.361, 656.174, 419.929, 656.174, 1.08962, 640.661, 2.19766, 638.445, 402.2, 0.213654, 402.2 )
 
-[node name="Sprite" type="Sprite" parent="StaticBody2D" index="1"]
-
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
 position = Vector2( -34.3493, 211.693 )
 scale = Vector2( 1, 6.57662 )
 texture = ExtResource( 2 )
 
-[node name="Sprite2" type="Sprite" parent="StaticBody2D" index="2"]
-
+[node name="Sprite2" type="Sprite" parent="StaticBody2D"]
 position = Vector2( 672.581, 210.585 )
 scale = Vector2( 1, 6.57662 )
 texture = ExtResource( 2 )
 
-[node name="Sprite3" type="Sprite" parent="StaticBody2D" index="3"]
-
+[node name="Sprite3" type="Sprite" parent="StaticBody2D"]
 position = Vector2( 316.559, 409.957 )
 scale = Vector2( 10.0243, 0.380888 )
 texture = ExtResource( 2 )
 
-[node name="Player" type="KinematicBody2D" parent="." index="2"]
-
+[node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 239.337, 342.385 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
 script = ExtResource( 3 )
-SPEED = 300
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="Player" index="1"]
-
+[node name="Sprite" type="Sprite" parent="Player"]
 texture = ExtResource( 4 )
 
-[node name="Artigo" type="Area2D" parent="." index="3"]
-
+[node name="Artigo" type="Area2D" parent="."]
 position = Vector2( 220.5, -18 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
 script = ExtResource( 5 )
-_sections_unfolded = [ "Transform" ]
-SPEED = 200
 
-[node name="Sprite" type="Sprite" parent="Artigo" index="0"]
-
+[node name="Sprite" type="Sprite" parent="Artigo"]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Artigo" index="1"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Artigo"]
 shape = SubResource( 3 )
-
 

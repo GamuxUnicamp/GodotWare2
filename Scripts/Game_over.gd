@@ -10,6 +10,8 @@ func _restart_game():
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
+	if global.debug_mode:
+		$debug.show()
 	$Points.text = "SCORE: "+str(global.current_points)
 	$Button.connect("pressed",self,"_restart_game")
 	pass
