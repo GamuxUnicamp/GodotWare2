@@ -24,13 +24,24 @@ align = 1
 valign = 1
 
 [node name="Points" type="Label" parent="."]
-margin_left = 9.0
-margin_top = 96.0
-margin_right = 651.0
-margin_bottom = 293.0
+margin_left = 7.56805
+margin_top = 50.1768
+margin_right = 649.568
+margin_bottom = 247.177
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "GAME OVER"
+text = "points"
+align = 1
+valign = 1
+
+[node name="High_score" type="Label" parent="."]
+margin_left = 1.84021
+margin_top = 111.752
+margin_right = 643.84
+margin_bottom = 308.752
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "hs"
 align = 1
 valign = 1
 
@@ -39,6 +50,17 @@ visible = false
 margin_left = 325.898
 margin_top = -12.7109
 margin_right = 752.898
+margin_bottom = 74.2891
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "DEBUG MODE"
+align = 1
+valign = 1
+
+[node name="Difficulty" type="Label" parent="."]
+margin_left = -118.014
+margin_top = -12.7109
+margin_right = 308.986
 margin_bottom = 74.2891
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )

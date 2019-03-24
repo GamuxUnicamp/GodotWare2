@@ -56,6 +56,7 @@ func led_print(instruction):
 func _ready():
 	Engine.set_time_scale(global.time_increase(global.current_points))
 	global.current_points = 0
+	global.debug_mode = false
 	randomize()
 	$Game_UI.hide()
 	# Called when the node is added to the scene for the first time.

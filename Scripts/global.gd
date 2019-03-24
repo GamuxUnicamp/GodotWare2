@@ -7,6 +7,8 @@ var debug_mode = false
 var difficulty = 0
 var current_points = 0
 
+var max_points = [0,0,0,0]
+
 var minigame_list = []
 var minigame_names = []
 const minigame_path = "res://Minigames"
@@ -38,7 +40,40 @@ func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
-
+	
+func load_game():
+	var save_game = File.new()
+	if not save_game.file_exists("user://godotware2.save"):
+		return
+	save_game.open("user://godotware2.save", File.READ)
+	var content = save_game.get_as_text()
+	save_game.close()
+	var save = JSON.parse(content)
+	if (save.result):
+		max_points[0] = save.result.easy
+		max_points[1] = save.result.medium
+		max_points[3] = save.result.hard
+		max_points[4] = save.result.impossible
+	pass
+	
+func save():
+	if not debug_mode:
+		if current_points > max_points[difficulty-1]:
+			max_points[difficulty-1] = current_points
+	var save_dict = {
+		"easy": max_points[0],
+		"medium": max_points[1],
+		"hard": max_points[2],
+		"impossible": max_points[3],
+	}
+	var save_game = File.new()
+	if not save_game.file_exists("user://godotware2.save"):
+		save_game.open("user://godotware2.save", File.WRITE)
+	else:
+		save_game.open("user://godotware2.save", File.READ_WRITE)
+	save_game.store_line(to_json(save_dict))
+	save_game.close()
+	return
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
