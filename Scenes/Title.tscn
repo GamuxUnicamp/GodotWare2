@@ -1,21 +1,36 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/Title.gd" type="Script" id=1]
-[ext_resource path="res://Arts/Menus/GodotWare2.png" type="Texture" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
-[ext_resource path="res://Fonts/Bazaronite/Bazaronite.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Scenes/Game_UI.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/ChooseLevel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Arts/Menus/godotware2_transicao(1).png" type="Texture" id=2]
+[ext_resource path="res://Fonts/Bazaronite/Bazaronite.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Arts/Menus/heart.png" type="Texture" id=4]
+[ext_resource path="res://Arts/Menus/GodotWare2.png" type="Texture" id=5]
+[ext_resource path="res://Arts/Menus/godotware2_transicao(2).png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Game_UI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/ChooseLevel.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=1]
-size = 50
-font_data = ExtResource( 4 )
+size = 40
+font_data = ExtResource( 3 )
+
+[sub_resource type="ArrayMesh" id=6]
+surfaces/0 = {
+"aabb": AABB( -4, -200, 0, 221, 400, 0 ),
+"array_data": PoolByteArray( 0, 0, 89, 67, 0, 0, 72, 67, 205, 204, 86, 63, 0, 0, 128, 63, 0, 0, 128, 192, 0, 0, 72, 67, 205, 204, 252, 62, 0, 0, 128, 63, 0, 0, 128, 192, 0, 0, 72, 195, 205, 204, 252, 62, 0, 0, 0, 0, 0, 0, 89, 67, 0, 0, 72, 195, 205, 204, 86, 63, 0, 0, 0, 0 ),
+"array_index_data": PoolByteArray( 3, 0, 0, 0, 1, 0, 1, 0, 2, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 262417,
+"index_count": 6,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Open"
 length = 2.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("BG/Door:scale")
+tracks/0/path = NodePath("BG/Door_right:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -24,13 +39,37 @@ tracks/0/keys = {
 "times": PoolRealArray( 1, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 4.52396, 4.43991 ), Vector2( 0, 4.43991 ) ]
+"values": [ Vector2( 326.098, 253 ), Vector2( 491.905, 253 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BG/Door_left:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 146.529, 253 ), Vector2( -34.352, 253 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BG/Hearts:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
 }
 
 [sub_resource type="Animation" id=3]
 resource_name = "Close"
 tracks/0/type = "value"
-tracks/0/path = NodePath("BG/Door:scale")
+tracks/0/path = NodePath("BG/Door_left:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -39,19 +78,43 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 4.43991 ), Vector2( 4.52396, 4.43991 ) ]
+"values": [ Vector2( -34.352, 253 ), Vector2( 146.529, 253 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("BG:frame")
+tracks/1/path = NodePath("BG/Door_right:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 491.905, 253 ), Vector2( 326.098, 253 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BG/Lobby:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BG/Hearts:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -109,6 +172,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( -412.689, -401.585 ), Vector2( 0, 0 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("BG/Hearts:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.00442939 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [node name="Title" type="Node2D"]
 script = ExtResource( 1 )
@@ -119,58 +194,94 @@ __meta__ = {
 [node name="Buttons" type="Node2D" parent="."]
 
 [node name="Easy" type="Button" parent="Buttons"]
-margin_left = 524.0
-margin_top = 252.0
-margin_right = 596.0
-margin_bottom = 277.0
+margin_left = 520.742
+margin_top = 307.386
+margin_right = 592.742
+margin_bottom = 332.386
+rect_scale = Vector2( 1.31339, 1 )
 
 [node name="Medium" type="Button" parent="Buttons"]
-margin_left = 524.0
-margin_top = 224.0
-margin_right = 596.0
-margin_bottom = 249.0
+margin_left = 521.557
+margin_top = 264.725
+margin_right = 593.557
+margin_bottom = 289.725
+rect_scale = Vector2( 1.2547, 1 )
 
 [node name="Hard" type="Button" parent="Buttons"]
-margin_left = 524.0
-margin_top = 196.0
-margin_right = 596.0
-margin_bottom = 221.0
+margin_left = 520.742
+margin_top = 222.879
+margin_right = 592.742
+margin_bottom = 247.879
+rect_scale = Vector2( 1.3001, 1.09773 )
 
 [node name="Impossible" type="Button" parent="Buttons"]
-margin_left = 524.0
-margin_top = 169.0
-margin_right = 596.0
-margin_bottom = 194.0
+margin_left = 519.927
+margin_top = 181.218
+margin_right = 591.927
+margin_bottom = 206.218
+rect_scale = Vector2( 1.32115, 1.1388 )
 
 [node name="Debug" type="Button" parent="Buttons"]
-margin_left = 227.582
-margin_top = 254.918
-margin_right = 299.582
-margin_bottom = 279.918
-rect_scale = Vector2( 0.98425, 3.38265 )
+margin_left = 203.147
+margin_top = 242.7
+margin_right = 275.147
+margin_bottom = 267.7
+rect_scale = Vector2( 1.12572, 3.38265 )
 
 [node name="BG" type="Sprite" parent="."]
 z_index = 1
 texture = ExtResource( 2 )
 centered = false
-vframes = 2
-
-[node name="Door" type="Sprite" parent="BG"]
-position = Vector2( 183.208, 114.618 )
-scale = Vector2( 1e-05, 4.43991 )
-texture = ExtResource( 3 )
-centered = false
 
 [node name="Label" type="Label" parent="BG"]
 margin_left = 93.0
-margin_top = 31.0
+margin_top = 16.0
 margin_right = 553.0
-margin_bottom = 97.0
+margin_bottom = 82.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "GODOTWARE"
 align = 1
 valign = 1
+
+[node name="Hearts" type="Node2D" parent="BG"]
+visible = false
+
+[node name="heart" type="Sprite" parent="BG/Hearts"]
+position = Vector2( 226.098, 43 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 4 )
+
+[node name="heart2" type="Sprite" parent="BG/Hearts"]
+position = Vector2( 326.098, 43 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 4 )
+
+[node name="heart3" type="Sprite" parent="BG/Hearts"]
+position = Vector2( 426.098, 43 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 4 )
+
+[node name="Lobby" type="Sprite" parent="BG"]
+visible = false
+show_behind_parent = true
+position = Vector2( 311.988, 397.115 )
+scale = Vector2( 1.19329, 1.06207 )
+texture = ExtResource( 5 )
+
+[node name="Door_left" type="MeshInstance2D" parent="BG"]
+show_behind_parent = true
+position = Vector2( 146.529, 253 )
+scale = Vector2( 0.84388, 0.796419 )
+mesh = SubResource( 6 )
+texture = ExtResource( 6 )
+
+[node name="Door_right" type="MeshInstance2D" parent="BG"]
+show_behind_parent = true
+position = Vector2( 326.098, 253 )
+scale = Vector2( 0.84388, 0.796419 )
+mesh = SubResource( 6 )
+texture = ExtResource( 6 )
 
 [node name="Open_Door" type="AnimationPlayer" parent="."]
 anims/Open = SubResource( 2 )
@@ -184,13 +295,15 @@ anims/Close_in = SubResource( 4 )
 [node name="Close_out" type="AnimationPlayer" parent="."]
 anims/Close_out = SubResource( 5 )
 
-[node name="Game_UI" parent="." instance=ExtResource( 5 )]
+[node name="Game_UI" parent="." instance=ExtResource( 7 )]
 
 [node name="Delay_timer" type="Timer" parent="."]
 one_shot = true
 
 [node name="Debug_menu" type="CanvasLayer" parent="."]
 
-[node name="ChooseLevel" parent="Debug_menu" instance=ExtResource( 6 )]
+[node name="ChooseLevel" parent="Debug_menu" instance=ExtResource( 8 )]
 visible = false
 
+
+[editable path="Game_UI"]

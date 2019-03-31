@@ -30,6 +30,12 @@ func _minigame_ended(status):
 		global.current_points += 1
 	else:
 		current_lives -= 1
+	if current_lives <= 2:
+		$BG/Hearts/heart3.hide()
+	if current_lives <= 1:
+		$BG/Hearts/heart2.hide()
+	if current_lives <= 0:
+		$BG/Hearts/heart3.hide()
 	Engine.set_time_scale(global.time_increase(global.current_points))
 	led_print("")
 	$Close_out.play("Close_out")
