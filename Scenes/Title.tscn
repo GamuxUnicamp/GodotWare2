@@ -13,7 +13,7 @@
 size = 40
 font_data = ExtResource( 3 )
 
-[sub_resource type="ArrayMesh" id=6]
+[sub_resource type="ArrayMesh" id=2]
 surfaces/0 = {
 "aabb": AABB( -4, -200, 0, 221, 400, 0 ),
 "array_data": PoolByteArray( 0, 0, 89, 67, 0, 0, 72, 67, 205, 204, 86, 63, 0, 0, 128, 63, 0, 0, 128, 192, 0, 0, 72, 67, 205, 204, 252, 62, 0, 0, 128, 63, 0, 0, 128, 192, 0, 0, 72, 195, 205, 204, 252, 62, 0, 0, 0, 0, 0, 0, 89, 67, 0, 0, 72, 195, 205, 204, 86, 63, 0, 0, 0, 0 ),
@@ -26,8 +26,7 @@ surfaces/0 = {
 "vertex_count": 4
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Open"
+[sub_resource type="Animation" id=3]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG/Door_right:position")
@@ -66,8 +65,7 @@ tracks/2/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Close"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG/Door_left:position")
 tracks/0/interp = 1
@@ -117,8 +115,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Close_in"
+[sub_resource type="Animation" id=5]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG:scale")
@@ -145,8 +142,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( -412.689, -401.585 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Close_out"
+[sub_resource type="Animation" id=6]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG:scale")
@@ -263,7 +259,6 @@ scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 4 )
 
 [node name="Lobby" type="Sprite" parent="BG"]
-visible = false
 show_behind_parent = true
 position = Vector2( 311.988, 397.115 )
 scale = Vector2( 1.19329, 1.06207 )
@@ -271,29 +266,29 @@ texture = ExtResource( 5 )
 
 [node name="Door_left" type="MeshInstance2D" parent="BG"]
 show_behind_parent = true
-position = Vector2( 146.529, 253 )
+position = Vector2( -34.352, 253 )
 scale = Vector2( 0.84388, 0.796419 )
-mesh = SubResource( 6 )
+mesh = SubResource( 2 )
 texture = ExtResource( 6 )
 
 [node name="Door_right" type="MeshInstance2D" parent="BG"]
 show_behind_parent = true
-position = Vector2( 326.098, 253 )
+position = Vector2( 491.905, 253 )
 scale = Vector2( 0.84388, 0.796419 )
-mesh = SubResource( 6 )
+mesh = SubResource( 2 )
 texture = ExtResource( 6 )
 
 [node name="Open_Door" type="AnimationPlayer" parent="."]
-anims/Open = SubResource( 2 )
+anims/Open = SubResource( 3 )
 
 [node name="Close_Door" type="AnimationPlayer" parent="."]
-anims/Close = SubResource( 3 )
+anims/Close = SubResource( 4 )
 
 [node name="Close_in" type="AnimationPlayer" parent="."]
-anims/Close_in = SubResource( 4 )
+anims/Close_in = SubResource( 5 )
 
 [node name="Close_out" type="AnimationPlayer" parent="."]
-anims/Close_out = SubResource( 5 )
+anims/Close_out = SubResource( 6 )
 
 [node name="Game_UI" parent="." instance=ExtResource( 7 )]
 
