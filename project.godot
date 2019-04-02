@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="GodotWare2"
 run/main_scene="res://Scenes/Title.tscn"
-config/icon="res://icon.png"
+config/icon="res://iconware.png"
 
 [autoload]
 
